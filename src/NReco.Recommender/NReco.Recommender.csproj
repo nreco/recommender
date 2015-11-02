@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5DA1BF8-7601-45FC-A906-F61AC63D8EE7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NReco.Recommender</RootNamespace>
+    <AssemblyName>NReco.Recommender</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\NReco.Recommender.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\NReco.Recommender.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="math\AbstractIntegerDistribution.cs" />
+    <Compile Include="math\AlternatingLeastSquaresSolver.cs" />
+    <Compile Include="math\Beta.cs" />
+    <Compile Include="math\BitsStreamGenerator.cs" />
+    <Compile Include="math\ContinuedFraction.cs" />
+    <Compile Include="math\Gamma.cs" />
+    <Compile Include="math\ImplicitFeedbackAlternatingLeastSquaresSolver.cs" />
+    <Compile Include="math\IRandomGenerator.cs" />
+    <Compile Include="math\LogLikelihood.cs" />
+    <Compile Include="math\MathUtil.cs" />
+    <Compile Include="math\MatrixUtil.cs" />
+    <Compile Include="math\MersenneTwister.cs" />
+    <Compile Include="math\NotStrictlyPositiveException.cs" />
+    <Compile Include="math\PascalDistribution.cs" />
+    <Compile Include="math\Primes.cs" />
+    <Compile Include="math\QRDecomposition.cs" />
+    <Compile Include="math\RandomUtils.cs" />
+    <Compile Include="math\RandomWrapper.cs" />
+    <Compile Include="math\SmallPrimes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="taste\common\AtomicInteger.cs" />
+    <Compile Include="taste\common\IRefreshable.cs" />
+    <Compile Include="taste\common\LoggerFactory.cs" />
+    <Compile Include="taste\common\NoSuchItemException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\common\NoSuchUserException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\common\TasteException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\common\Utils.cs" />
+    <Compile Include="taste\common\Weighting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\eval\IDataModelBuilder.cs" />
+    <Compile Include="taste\eval\IRecommenderBuilder.cs" />
+    <Compile Include="taste\eval\IRecommenderEvaluator.cs" />
+    <Compile Include="taste\eval\IRecommenderIRStatsEvaluator.cs" />
+    <Compile Include="taste\eval\IRelevantItemsDataSplitter.cs" />
+    <Compile Include="taste\impl\common\FixedSizeSamplingIterator.cs" />
+    <Compile Include="taste\impl\common\IRetriever.cs" />
+    <Compile Include="taste\impl\common\IRunningAverage.cs" />
+    <Compile Include="taste\impl\common\IRunningAverageAndStdDev.cs" />
+    <Compile Include="taste\impl\model\file\FileDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\svd\ALSWRFactorizer.cs" />
+    <Compile Include="taste\impl\recommender\svd\FilePersistenceStrategy.cs" />
+    <Compile Include="taste\eval\IRStatistics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\BitSet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\Cache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\FastByIDMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\FastIDSet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\FixedRunningAverage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\FixedRunningAverageAndStdDev.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\FullRunningAverage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\FullRunningAverageAndStdDev.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\InvertedRunningAverage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\InvertedRunningAverageAndStdDev.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\RefreshHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\SamplingLongPrimitiveIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\WeightedRunningAverage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\common\WeightedRunningAverageAndStdDev.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\AbstractDifferenceRecommenderEvaluator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\AverageAbsoluteDifferenceRecommenderEvaluator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\GenericRecommenderIRStatsEvaluator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\GenericRelevantItemsDataSplitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\IRStatisticsImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\LoadCallable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\LoadEvaluator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\LoadStatistics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\OrderBasedRecommenderEvaluator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\RMSRecommenderEvaluator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\eval\StatsCallable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\AbstractDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\BooleanItemPreferenceArray.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\BooleanPreference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\BooleanUserPreferenceArray.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\GenericBooleanPrefDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\GenericDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\GenericItemPreferenceArray.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\GenericPreference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\GenericUserPreferenceArray.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\PlusAnonymousConcurrentUserDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\PlusAnonymousUserDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\model\PlusAnonymousUserLongPrimitiveIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\neighborhood\AbstractUserNeighborhood.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\neighborhood\CachingUserNeighborhood.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\neighborhood\NearestNUserNeighborhood.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\neighborhood\ThresholdUserNeighborhood.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\AbstractCandidateItemsStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\AbstractRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\AllSimilarItemsCandidateItemsStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\AllUnknownItemsCandidateItemsStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\ByRescoreComparator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\ByValueRecommendedItemComparator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\CachingRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\EstimatedPreferenceCapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\GenericBooleanPrefItemBasedRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\GenericBooleanPrefUserBasedRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\GenericItemBasedRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\GenericRecommendedItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\GenericUserBasedRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\ItemAverageRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\ItemUserAverageRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\NullRescorer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\PreferredItemsNeighborhoodCandidateItemsStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\RandomRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\SamplingCandidateItemsStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\SimilarUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\svd\AbstractFactorizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\svd\Factorization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\svd\IFactorizer.cs" />
+    <Compile Include="taste\impl\recommender\svd\IPersistenceStrategy.cs" />
+    <Compile Include="taste\impl\recommender\svd\NoPersistenceStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\svd\ParallelSGDFactorizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\svd\RatingSGDFactorizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\svd\SVDPlusPlusFactorizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\svd\SVDPreference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\svd\SVDRecommender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\recommender\TopItems.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\AbstractItemSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\AbstractSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\AveragingPreferenceInferrer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\CachingItemSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\CachingUserSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\CityBlockSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\EuclideanDistanceSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\GenericItemSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\GenericUserSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\LogLikelihoodSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\LongPairMatchPredicate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\PearsonCorrelationSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\SpearmanCorrelationSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\TanimotoCoefficientSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\impl\similarity\UncenteredCosineSimilarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\model\IDataModel.cs" />
+    <Compile Include="taste\model\IPreference.cs" />
+    <Compile Include="taste\model\IPreferenceArray.cs" />
+    <Compile Include="taste\neighborhood\IUserNeighborhood.cs" />
+    <Compile Include="taste\recommender\ICandidateItemsStrategy.cs" />
+    <Compile Include="taste\recommender\IDRescorer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\recommender\IItemBasedRecommender.cs" />
+    <Compile Include="taste\recommender\IMostSimilarItemsCandidateItemsStrategy.cs" />
+    <Compile Include="taste\recommender\IRecommendedItem.cs" />
+    <Compile Include="taste\recommender\IRecommender.cs" />
+    <Compile Include="taste\recommender\IRescorer.cs" />
+    <Compile Include="taste\recommender\IUserBasedRecommender.cs" />
+    <Compile Include="taste\similarity\IItemSimilarity.cs" />
+    <Compile Include="taste\similarity\IPreferenceInferrer.cs" />
+    <Compile Include="taste\similarity\IUserSimilarity.cs" />
+    <Compile Include="taste\similarity\precompute\BatchItemSimilarities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\similarity\precompute\ISimilarItemsWriter.cs" />
+    <Compile Include="taste\similarity\precompute\SimilarItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="taste\similarity\precompute\SimilarItems.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="taste\impl\common\jdbc\" />
+    <Folder Include="taste\impl\similarity\file\" />
+    <Folder Include="taste\impl\similarity\precompute\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
