@@ -1,0 +1,18 @@
+version: 1.0.{build}
+os: Visual Studio 2015
+
+branches:
+  only:
+  - master
+
+skip_tags: true
+
+install:
+- cmd: nuget restore src\NReco.Recommender.sln
+
+build:
+  project: src\NReco.Recommender.sln
+  verbosity: minimal
+
+test_script:
+- cmd: nunit-console src\NReco.Recommender.Tests\bin\Debug\NReco.Recommender.Tests.dll
